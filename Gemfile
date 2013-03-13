@@ -6,12 +6,24 @@ gem 'rails', '3.2'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'jquery-rails', '~> 2.1'
+gem "paperclip", "~> 3.0"
+gem 'rails_admin'
 
 group :assets do
     gem 'sass-rails'
     gem 'coffee-rails'
     gem 'uglifier'
     gem 'bootstrap-sass'
+end
+
+group :development do
+	gem 'rspec-rails',"~> 2.0"
+end
+
+group :test do
+	gem 'webrat'
+	gem 'rspec',"~> 2.0"
 end
 
 # Use unicorn as the web server
@@ -36,3 +48,6 @@ end
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+
+gem "devise"

@@ -1,37 +1,61 @@
-<!doctype html>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
+    <title><%= @title%></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Myapp" %></title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <%= stylesheet_link_tag "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-    <%= yield(:head) %>
+    <%= render 'layouts/head' %>
   </head>
+
   <body>
-    <header class="navbar navbar-fixed-top">
-      <nav class="navbar-inner">
-        <div class="container">
-          <%= render 'layouts/navigation' %>
-        </div>
-      </nav>
-    </header>
-    <div id="main" role="main">
+
+
+    <!-- Part 1: Wrap all page content here -->
+    <div id="wrap">
+
+      <!-- Begin page content -->
       <div class="container">
-        <div class="content">
-           <div class="row">
-            <div class="span12">
-              <%= render 'layouts/messages' %>
-              <%= yield %>
+        <div class="navbar navbar-primary" id="menu" data-offset-top="-100px" style="width:900px">
+          <div class="navbar-inner">
+            <ul class="nav">
+              <li class="active"><%= link_to "Главная", root_path %></li>
+              <li><%= link_to "Инфографика", "/#infografika" %></li>
+              <li><%= link_to "Дневник взятия", archive_path %></li>
+              <li><%= link_to "Фотохроника", photos_path %></li>
+              <li><%= link_to "Ветераны", veterans_path %></li>
+            </ul>
+            <div class="pull-right">
+              <%= image_tag("logo.png", :alt => "информационная поддержка", :class => "logo") %>
+              <!--<img src="img/logo.png" style="max-height:20px;margin-top:7px" />-->
+
             </div>
+            <div class="pull-right" style="margin-top:9px;margin-right:5px;color:gray"><small>при поддержке</small></div>
           </div>
-          <footer>
-          </footer>
         </div>
-      </div> <!--! end of .container -->
-    </div> <!--! end of #main -->
+
+
+        <%= yield %>
+      </div> 
+      <div id="push"></div>
+      <%= debug(params) if Rails.env.development? %>
+
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
+      </div>
+    </div>
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script>
+      $('#menu').affix()
+    </script>
+
   </body>
 </html>

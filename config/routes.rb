@@ -1,4 +1,28 @@
 KoenigAssault::Application.routes.draw do
+  
+
+  devise_for :users
+
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
+  get "archive/index"
+
+  get "archive/detail"
+
+  get "pages/index"
+
+  get "pages/photos"
+
+  get "pages/veterans"
+
+  get "pages/archive"
+
+  match "/archive",:to=>'archive#index'
+  match "/photos",:to=>'pages#photos'
+  match "/veterans",:to=>'pages#veterans'
+  root :to => 'pages#index'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
