@@ -1,24 +1,24 @@
         <div class="page-header">
           <h1><%= @title%></h1>
-          <p class="lead">Кёнигсбергская операция (6—9 апреля 1945) — военная операция вооружённых сил СССР против немецких войск в ходе Великой Отечественной войны с целью ликвидации кенигсбергской группировки противника и захвата города-крепости Кёнигсберг, часть Восточно-Прусской операции 1945 года.</p>
+          <p class="lead"><%= @index_message %></p>
         </div>
-
+        <% @first_post.each do |post|  %>
           <div class="row">
               <div class="span12">
                 <div class="row">
                   <div class="span12">
-                    <h4><strong><a href="#" style="color:black">За 15 дней до взятия Кенигсберга</a></strong></h4>
+                    <h4><strong><a href="#" style="color:black"><%=h post.name %></a></strong></h4>
                   </div>
                 </div>
                 <div class="row">
                   <div class="span2">
                     <a href="#" class="thumbnail">
-                        <%= image_tag("examples/1302459292_sav-04.jpg", :height => "100px") %>
+                        <%= image_tag post.image.url(:thumb), :height => "100px" %>
                     </a>
                   </div>
                   <div class="span9">      
                     <p>
-                      Наступление войск фронта началось 6 апреля. Для штурма укреплений были созданы 26 штурмовых отрядов и 104 штурмовые группы — как из состава стрелковых частей, так и из инженерных войск — десяти инженерно-саперных бригад, трех штурмовых инженерно-саперных бригад, двух моторизованных инженерных бригад и одной понтонной бригады.
+                      <%=h post.preview_content %>
                     </p>
                     <p><a class="btn" href="#">Читать далее</a></p>
                   </div>
@@ -48,76 +48,48 @@
               </div>
             </div>
             <hr>
-
+        <% end %>
+        <%if @top_photos %>
         <div class="span6">
           <div class="text-left">
             <h4>Фотохроника штурма</h4>
           </div>
           <div>
             <ul class="thumbnails">
+              <% @top_photos.each do |photo| %>
               <li class="span2">
                 <a href="#" class="thumbnail">
                   <!--
                   <img src="examples/55a377c3cbea.jpg" alt="" height="100px">
                   -->
-                  <%= image_tag("examples/55a377c3cbea.jpg", :height => "100px") %>
+                  <%= image_tag photo.image.url(:thumb), :height => "100px" %>
                 </a>
               </li>
-              
-              <li class="span2">
-                <a href="#" class="thumbnail">
-                  <%= image_tag("examples/1302459292_sav-04.jpg", :height => "100px") %>
-                </a>
-              </li>
-
-              <li class="span2">
-                <a href="#" class="thumbnail">
-                  <%= image_tag("examples/kenigsberg1.jpg", :height => "100px") %>
-                </a>
-              </li>
-
-              <li class="span2">
-                <a href="#" class="thumbnail">
-                  <!--
-                  <img src="examples/55a377c3cbea.jpg" alt="" height="100px">
-                  -->
-                  <%= image_tag("examples/55a377c3cbea.jpg", :height => "100px") %>
-                </a>
-              </li>
-              
-              <li class="span2">
-                <a href="#" class="thumbnail">
-                  <%= image_tag("examples/1302459292_sav-04.jpg", :height => "100px") %>
-                </a>
-              </li>
-
-              <li class="span2">
-                <a href="#" class="thumbnail">
-                  <%= image_tag("examples/kenigsberg1.jpg", :height => "100px") %>
-                </a>
-              </li>
+              <% end %>
 
             </ul>
           </div>
         </div>
+        <% end %>
         <div class="pull-right" id="instagram">
           <div class="text-left" style='margin-left:10px'>
             <h4>Записи в Instagram по тегу <a>#9april</a></h4>
           </div>
+          <div>
             <!-- www.instagme.com -->
             <iframe src="http://www.instagme.com/in/?h=d3cyfGlufDEwMHwzfDJ8fHllc3wxNXx1bmRlZmluZWQ=" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:375px; height: 250px" ></iframe>
+          </div>
         </div>
         <!--
         <p>
           <h2><small>До дня штурма Кенигсберга осталось</small> 15 дней</h2>
         </p>
         -->
+        <div class="clear:both pull-left"></div>
+        <div>
+              <%  image_tag("info2.jpg") %>
+        </div>
         <div class="day_post">
-
-            <div class="text-center">
-              <h3>Инфографика по итогам штурма города</h3>
-            <img src="examples/info2.jpg" />
-            </div>
 
             <div class="row">
               <div class="span12">

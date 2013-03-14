@@ -1,2 +1,16 @@
-<h1>Pages#photos</h1>
-<p>Find me in app/views/pages/photos.html.erb</p>
+<div style="margin-left:50px">
+	<p><h1><%= @title%></h1></p>
+	<BR />
+	<ul class="thumbnails">
+	  <% @photos.each do |p| %>
+	  <li class="span2">
+	    <a href="#" class="thumbnail">
+	      <!--
+	      <img src="examples/55a377c3cbea.jpg" alt="" height="100px">
+	      -->
+	      <%= image_tag(p.image.url(:medium)) %>
+	    </a>
+	  </li>
+	  <% end %>
+	</ul>
+</div>

@@ -105,6 +105,8 @@ end
 
 RailsAdmin.config do |config|
   config.model ArchivePost do
+    label "Дневник победы" 
+    label_plural "Дневник победы"
     edit do
       field :name,:string
       field :preview_content,:text
@@ -113,9 +115,14 @@ RailsAdmin.config do |config|
     end
   end
 
-  config.model ArchivePost do
-      label "Дневник победы" 
-      label_plural "Дневник победы"
+  config.model PhotoArchive do
+    label "Фотоархив победы" 
+    label_plural "Фотоархив победы"
+    edit do
+      field :name,:string
+      field :description,:text
+      field :image
+    end
   end
 
   config.excluded_models << "User"
