@@ -20,7 +20,7 @@
                     <p>
                       <%=h post.preview_content %>
                     </p>
-                    <p><a class="btn" href="#">Читать далее</a></p>
+                    <%= link_to 'Читать далее', archive_detail_path(post.id), :class=>"btn" %>
                   </div>
                 </div>
                 <div class="row">
@@ -111,7 +111,7 @@
                       <p>
                         <%=h post.preview_content %>
                       </p>
-                      <p><a class="btn" href="#">Читать далее</a></p>
+                      <p><%= link_to 'Читать далее', archive_detail_path(post.id), :class=>"btn" %></p>
                     </div>
                   </div>
                   <div class="row">

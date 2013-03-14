@@ -3,11 +3,9 @@ KoenigAssault::Application.routes.draw do
 
   devise_for :users
 
+  #resources :archive
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-
-  get "archive/index"
-
-  get "archive/detail"
 
   get "pages/index"
 
@@ -15,9 +13,11 @@ KoenigAssault::Application.routes.draw do
 
   get "pages/veterans"
 
-  get "pages/archive"
+  match "/archive/detail/(:id)" => 'archive#detail',:as =>:archive_detail
+
 
   match "/archive",:to=>'archive#index'
+
   match "/photos",:to=>'pages#photos'
   match "/veterans",:to=>'pages#veterans'
   root :to => 'pages#index'

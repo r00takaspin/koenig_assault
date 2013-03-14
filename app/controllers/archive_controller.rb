@@ -6,5 +6,9 @@ class ArchiveController < ApplicationController
   end
 
   def detail
+  	@post = ArchivePost.find(params[:id])
+  	if (@post)
+  		@title = @post.name
+	end
   end
 end
