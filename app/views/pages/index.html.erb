@@ -29,7 +29,7 @@
                     <p>
                         <div class='pull-left'>
                               <div style="float:left;margin:4px">
-                                <i class="icon-calendar"></i> 24 марта 2012 |
+                                <i class="icon-calendar"></i> <%= I18n.localize(post.created_at, :format => :descr) %> |
                               </div>
                               <script type="text/javascript">(function() {
                                if (window.pluso && typeof window.pluso.start == "function") return;
@@ -41,7 +41,7 @@
                               })();</script>
                               <div class="pluso pull-right" data-options="small,square,line,horizontal,counter,theme=02" data-services="twitter,vkontakte,facebook,google,livejournal" data-background="#ebebeb" data-url="http://klops.ru/"></div>
                         </div>
-                        <div class='pull-right'><button class="btn btn-medium btn-inverse" type="button">Предыдущие дни</button></div>
+                        <div class='pull-right'><button class="btn btn-medium btn-inverse" type="button" onClick="location.href='#day_post'" value='click here to visit home page' onclick="$('.day_posts').scrollTo()">Предыдущие дни</button></div>
                     </p>
                   </div>
                 </div>
@@ -85,234 +85,60 @@
           <h2><small>До дня штурма Кенигсберга осталось</small> 15 дней</h2>
         </p>
         -->
-        <div class="clear:both pull-left"></div>
         <div>
-              <%  image_tag("info2.jpg") %>
+          <a href="#" name="infografika"><%=  image_tag("/images/infograf.jpg",:width=>"900px") %></a>
+        </div>
+
+        <div class="span6" style="margin-left:0px">
+            <a href="#" name="day_post"><h3 style="color:black">Дневник взятия</h3></a>
         </div>
         <div class="day_post">
-
-            <div class="row">
-              <div class="span12">
-                <div class="row">
-                  <div class="span12">
-                    <h4><strong><a href="#">За 15 дней до взятия Кенигсберга</a></strong></h4>
+            <% @another_posts.each do |post|%>
+              <div class="row">
+                <div class="span12">
+                  <div class="row">
+                    <div class="span12">
+                      <h4><strong><a href="#" style="color:black"><%=h post.name %></a></strong></h4>
+                    </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="span2">
-                    <a href="#" class="thumbnail">
-                        <img src="examples/55a377c3cbea.jpg" alt="">
-                    </a>
+                  <div class="row">
+                    <div class="span2">
+                      <a href="#" class="thumbnail">
+                          <%= image_tag post.image.url(:thumb), :height => "100px" %>
+                      </a>
+                    </div>
+                    <div class="span9">      
+                      <p>
+                        <%=h post.preview_content %>
+                      </p>
+                      <p><a class="btn" href="#">Читать далее</a></p>
+                    </div>
                   </div>
-                  <div class="span9">      
-                    <p>
-                      Наступление войск фронта началось 6 апреля. Для штурма укреплений были созданы 26 штурмовых отрядов и 104 штурмовые группы — как из состава стрелковых частей, так и из инженерных войск — десяти инженерно-саперных бригад, трех штурмовых инженерно-саперных бригад, двух моторизованных инженерных бригад и одной понтонной бригады.
-                    </p>
-                    <p><a class="btn" href="#">Читать далее</a></p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="span11">
-                    <p></p>
-                    <p>
-                        <div class='pull-left'>
-                           <div style="float:left;margin:4px">
-                            <i class="icon-calendar"></i> 24 марта 2012 |
+                  <div class="row">
+                    <div class="span11">
+                      <p></p>
+                      <p>
+                          <div class='pull-left'>
+                                <div style="float:left;margin:4px">
+                                  <i class="icon-calendar"></i> <%= I18n.localize(post.created_at, :format => :descr) %> |
+                                </div>
+                                <script type="text/javascript">(function() {
+                                 if (window.pluso && typeof window.pluso.start == "function") return;
+                                 var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+                                 s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+                                 s.src = d.location.protocol  + '//share.pluso.ru/pluso-like.js';
+                                 var h=d[g]('head')[0] || d[g]('body')[0];
+                                 h.appendChild(s);
+                                })();</script>
+                                <div class="pluso pull-right" data-options="small,square,line,horizontal,counter,theme=02" data-services="twitter,vkontakte,facebook,google,livejournal" data-background="#ebebeb" data-url="http://klops.ru/"></div>
                           </div>
-                              <script type="text/javascript">(function() {
-                               if (window.pluso && typeof window.pluso.start == "function") return;
-                               var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-                               s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-                               s.src = d.location.protocol  + '//share.pluso.ru/pluso-like.js';
-                               var h=d[g]('head')[0] || d[g]('body')[0];
-                               h.appendChild(s);
-                              })();</script>
-                              <div class="pluso pull-right" data-options="small,square,line,horizontal,counter,theme=02" data-services="twitter,vkontakte,facebook,google,livejournal" data-background="#ebebeb" data-url="http://klops.ru/"></div>
-                        </div>
-                    </p>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <hr>
-
-            <div class="row">
-              <div class="span12">
-                <div class="row">
-                  <div class="span12">
-                    <h4><strong><a href="#">За 15 дней до взятия Кенигсберга</a></strong></h4>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="span2">
-                    <a href="#" class="thumbnail">
-                        <img src="examples/55a377c3cbea.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="span9">      
-                    <p>
-                      Наступление войск фронта началось 6 апреля. Для штурма укреплений были созданы 26 штурмовых отрядов и 104 штурмовые группы — как из состава стрелковых частей, так и из инженерных войск — десяти инженерно-саперных бригад, трех штурмовых инженерно-саперных бригад, двух моторизованных инженерных бригад и одной понтонной бригады.
-                    </p>
-                    <p><a class="btn" href="#">Читать далее</a></p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="span11">
-                    <p></p>
-                    <p>
-                        <div class='pull-left'>
-                           <div style="float:left;margin:4px">
-                            <i class="icon-calendar"></i> 24 марта 2012 |
-                          </div>
-                              <script type="text/javascript">(function() {
-                               if (window.pluso && typeof window.pluso.start == "function") return;
-                               var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-                               s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-                               s.src = d.location.protocol  + '//share.pluso.ru/pluso-like.js';
-                               var h=d[g]('head')[0] || d[g]('body')[0];
-                               h.appendChild(s);
-                              })();</script>
-                              <div class="pluso pull-right" data-options="small,square,line,horizontal,counter,theme=02" data-services="twitter,vkontakte,facebook,google,livejournal" data-background="#ebebeb" data-url="http://klops.ru/"></div>
-                        </div>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="span12">
-                <div class="row">
-                  <div class="span12">
-                    <h4><strong><a href="#">За 15 дней до взятия Кенигсберга</a></strong></h4>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="span2">
-                    <a href="#" class="thumbnail">
-                        <img src="examples/55a377c3cbea.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="span9">      
-                    <p>
-                      Наступление войск фронта началось 6 апреля. Для штурма укреплений были созданы 26 штурмовых отрядов и 104 штурмовые группы — как из состава стрелковых частей, так и из инженерных войск — десяти инженерно-саперных бригад, трех штурмовых инженерно-саперных бригад, двух моторизованных инженерных бригад и одной понтонной бригады.
-                    </p>
-                    <p><a class="btn" href="#">Читать далее</a></p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="span11">
-                    <p></p>
-                    <p>
-                        <div class='pull-left'>
-                           <div style="float:left;margin:4px">
-                            <i class="icon-calendar"></i> 24 марта 2012 |
-                          </div>
-                              <script type="text/javascript">(function() {
-                               if (window.pluso && typeof window.pluso.start == "function") return;
-                               var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-                               s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-                               s.src = d.location.protocol  + '//share.pluso.ru/pluso-like.js';
-                               var h=d[g]('head')[0] || d[g]('body')[0];
-                               h.appendChild(s);
-                              })();</script>
-                              <div class="pluso pull-right" data-options="small,square,line,horizontal,counter,theme=02" data-services="twitter,vkontakte,facebook,google,livejournal" data-background="#ebebeb" data-url="http://klops.ru/"></div>
-                        </div>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="span12">
-                <div class="row">
-                  <div class="span12">
-                    <h4><strong><a href="#">За 15 дней до взятия Кенигсберга</a></strong></h4>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="span2">
-                    <a href="#" class="thumbnail">
-                        <img src="examples/55a377c3cbea.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="span9">      
-                    <p>
-                      Наступление войск фронта началось 6 апреля. Для штурма укреплений были созданы 26 штурмовых отрядов и 104 штурмовые группы — как из состава стрелковых частей, так и из инженерных войск — десяти инженерно-саперных бригад, трех штурмовых инженерно-саперных бригад, двух моторизованных инженерных бригад и одной понтонной бригады.
-                    </p>
-                    <p><a class="btn" href="#">Читать далее</a></p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="span11">
-                    <p></p>
-                    <p>
-                        <div class='pull-left'>
-                           <div style="float:left;margin:4px">
-                            <i class="icon-calendar"></i> 24 марта 2012 |
-                          </div>
-                              <script type="text/javascript">(function() {
-                               if (window.pluso && typeof window.pluso.start == "function") return;
-                               var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-                               s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-                               s.src = d.location.protocol  + '//share.pluso.ru/pluso-like.js';
-                               var h=d[g]('head')[0] || d[g]('body')[0];
-                               h.appendChild(s);
-                              })();</script>
-                              <div class="pluso pull-right" data-options="small,square,line,horizontal,counter,theme=02" data-services="twitter,vkontakte,facebook,google,livejournal" data-background="#ebebeb" data-url="http://klops.ru/"></div>
-                        </div>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr>
-
-            <div class="row">
-              <div class="span12">
-                <div class="row">
-                  <div class="span12">
-                    <h4><strong><a href="#">За 15 дней до взятия Кенигсберга</a></strong></h4>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="span2">
-                    <a href="#" class="thumbnail">
-                        <img src="examples/55a377c3cbea.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="span9">      
-                    <p>
-                      Наступление войск фронта началось 6 апреля. Для штурма укреплений были созданы 26 штурмовых отрядов и 104 штурмовые группы — как из состава стрелковых частей, так и из инженерных войск — десяти инженерно-саперных бригад, трех штурмовых инженерно-саперных бригад, двух моторизованных инженерных бригад и одной понтонной бригады.
-                    </p>
-                    <p><a class="btn" href="#">Читать далее</a></p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="span11">
-                    <p></p>
-                    <p>
-                        <div class='pull-left'>
-                           <div style="float:left;margin:4px">
-                            <i class="icon-calendar"></i> 24 марта 2012 |
-                          </div>
-                              <script type="text/javascript">(function() {
-                               if (window.pluso && typeof window.pluso.start == "function") return;
-                               var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-                               s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-                               s.src = d.location.protocol  + '//share.pluso.ru/pluso-like.js';
-                               var h=d[g]('head')[0] || d[g]('body')[0];
-                               h.appendChild(s);
-                              })();</script>
-                              <div class="pluso pull-right" data-options="small,square,line,horizontal,counter,theme=02" data-services="twitter,vkontakte,facebook,google,livejournal" data-background="#ebebeb" data-url="http://klops.ru/"></div>
-                        </div>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr>
+              <hr>
+            <% end %>
 
 
          </div> 
