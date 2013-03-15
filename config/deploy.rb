@@ -9,7 +9,7 @@ set :use_sudo, false
 set :unicorn_conf, "#{deploy_to}/current/config/unicorn.rb"
 set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 
-set :rvm_ruby_string, '1.9.2' # Это указание на то, какой Ruby интерпретатор мы будем использовать.
+set :rvm_ruby_string, '1.9.3' # Это указание на то, какой Ruby интерпретатор мы будем использовать.
 
 set :scm, :git # Используем git. Можно, конечно, использовать что-нибудь другое - svn, например, но общая рекомендация для всех кто не использует git - используйте git. 
 set :repository,  "http://github.com/r00takaspin/koenig_assault.git" # Путь до вашего репозитария. Кстати, забор кода с него происходит уже не от вас, а от сервера, поэтому стоит создать пару rsa ключей на сервере и добавить их в deployment keys в настройках репозитария.
@@ -40,4 +40,11 @@ namespace :deploy do
   task :stop do
     run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -QUIT `cat #{unicorn_pid}`; fi"
   end
+end
+
+before "deploy:assets:precompile" do
+  run ["ln -nfs #{shared_path}/config/settings.yml #{release_path}/config/settings.yml",
+       "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml",
+       "ln -fs #{shared_path}/uploads #{release_path}/uploads"
+  ].join(" && ")
 end
