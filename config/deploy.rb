@@ -22,11 +22,6 @@ role :db,  domain, :primary => true
 
 before 'deploy:setup', 'rvm:install_rvm', 'rvm:install_ruby' # интеграция rvm с capistrano настолько хороша, что при выполнении cap deploy:setup установит себя и указанный в rvm_ruby_string руби.
 
-after 'deploy:update_code', :roles => :app do
-  # Здесь для примера вставлен только один конфиг с приватными данными - database.yml. Обычно для таких вещей создают папку /srv/myapp/shared/config и кладут файлы туда. При каждом деплое создаются ссылки на них в нужные места приложения.
-  run "rm -f #{current_release}/config/database.yml"
-  run "ln -s #{deploy_to}/shared/config/database.yml #{current_release}/config/database.yml"
-end
 
 # Далее идут правила для перезапуска unicorn. Их стоит просто принять на веру - они работают.
 # В случае с Rails 3 приложениями стоит заменять bundle exec unicorn_rails на bundle exec unicorn
@@ -40,11 +35,4 @@ namespace :deploy do
   task :stop do
     run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -QUIT `cat #{unicorn_pid}`; fi"
   end
-end
-
-before "deploy:assets:precompile" do
-  run ["ln -nfs #{shared_path}/config/settings.yml #{release_path}/config/settings.yml",
-       "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml",
-       "ln -fs #{shared_path}/uploads #{release_path}/uploads"
-  ].join(" && ")
 end

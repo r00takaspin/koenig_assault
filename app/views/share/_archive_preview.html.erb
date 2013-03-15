@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="span12">
+    <div class="row">
+      <div class="span12">
+        <h4><strong><a href="#" style="color:black"><%=h post.name %></a></strong></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span2">
+        <a href="<%= post.image.url(:medium)%>" class="thumbnail">
+            <%= image_tag post.image.url(:thumb), :height => "100px" %>
+        </a>
+      </div>
+      <div class="span9">      
+        <p>
+          <%=h post.preview_content %>
+        </p>
+        <%= link_to 'Читать далее', archive_detail_path(post.id), :class=>"btn" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span11">
+        <p></p>
+        <p>
+            <div class='pull-left'>
+                  <div style="float:left;margin:4px">
+                    <i class="icon-calendar"></i> <%= I18n.localize(post.created_at, :format => :descr) %> |
+                  </div>
+                  <script type="text/javascript">(function() {
+                   if (window.pluso && typeof window.pluso.start == "function") return;
+                   var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+                   s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+                   s.src = d.location.protocol  + '//share.pluso.ru/pluso-like.js';
+                   var h=d[g]('head')[0] || d[g]('body')[0];
+                   h.appendChild(s);
+                  })();</script>
+                  <div class="pluso pull-right" data-options="small,square,line,horizontal,counter,theme=02" data-services="twitter,vkontakte,facebook,google,livejournal" data-background="#ebebeb" data-url="<%=url_for :host => request.host, :controller => 'archive', :action => 'detail', :id => post.id %>"></div>
+            </div>
+            <% if defined?(scrollDown) %>
+              <div class='pull-right'><button class="btn btn-medium btn-inverse" type="button" onClick="location.href='#day_post'" value='click here to visit home page' onclick="$('.day_posts').scrollTo()">Предыдущие дни</button></div>
+            <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
