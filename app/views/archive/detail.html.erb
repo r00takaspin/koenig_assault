@@ -8,7 +8,7 @@
     </div>
     <div class="row">
       <div class="span2">
-        <a href="#" class="thumbnail">
+        <a href="<%= @post.image.url(:medium)%>" class="thumbnail">
             <%= image_tag @post.image.url(:thumb), :height => "100px" %>
         </a>
       </div>
@@ -35,7 +35,7 @@
                    var h=d[g]('head')[0] || d[g]('body')[0];
                    h.appendChild(s);
                   })();</script>
-                  <div class="pluso pull-right" data-options="small,square,line,horizontal,counter,theme=02" data-services="twitter,vkontakte,facebook,google,livejournal" data-background="#ebebeb" data-url="http://klops.ru/"></div>
+                  <div class="pluso pull-right" data-options="small,square,line,horizontal,counter,theme=02" data-services="twitter,vkontakte,facebook,google,livejournal" data-background="#ebebeb" data-url="<%=url_for :host => request.host, :controller => 'archive', :action => 'detail', :id => @post.id %>"></div>
             </div>
         </p>
       </div>

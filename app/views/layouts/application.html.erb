@@ -19,10 +19,10 @@
         <div class="navbar navbar-primary" id="menu" data-offset-top="-100px" style="width:900px">
           <div class="navbar-inner">
             <ul class="nav">
-              <li class="active"><%= link_to "Главная", root_path %></li>
+              <li class="<%= 'active' if params[:controller] == 'pages' &&  params[:action] == 'index' %>"><%= link_to "Главная", root_path %></li>
               <li><%= link_to "Инфографика", "/#infografika" %></li>
-              <li><%= link_to "Дневник взятия", archive_path %></li>
-              <li><%= link_to "Фотохроника", photos_path %></li>
+              <li class="<%= 'active' if params[:controller] == 'archive' &&  (params[:action] == 'index' or params[:action] == 'detail') %>"><%= link_to "Дневник взятия", archive_path %></li>
+              <li class="<%= 'active' if params[:controller] == 'pages' &&  params[:action] == 'photos' %>"><%= link_to "Фотохроника", photos_path %></li>
               <li><%= link_to "Ветераны", veterans_path %></li>
             </ul>
             <div class="pull-right">
@@ -37,16 +37,13 @@
         <%= yield %>
       </div> 
       <div id="push"></div>
-      <%= debug(params) if Rails.env.development? %>
-
     </div>
 
     <div id="footer">
-      <div class="container">
-        <p class="muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
+      <div class="container" style="text-align:center">
+        <p class="muted credit"></p>
       </div>
     </div>
-
 
 
     <!-- Le javascript
@@ -54,6 +51,10 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script>
       $('#menu').affix()
+
+      $(document).ready(function(){
+        $("a.thumbnail").fancybox();
+      });
     </script>
 
   </body>

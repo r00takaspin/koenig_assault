@@ -4,11 +4,11 @@
 	<ul class="thumbnails">
 	  <% @photos.each do |p| %>
 	  <li class="span2">
-	    <a href="#" class="thumbnail">
+	    <a href="<%=p.image.url(:large)%>" class="thumbnail">
 	      <!--
 	      <img src="examples/55a377c3cbea.jpg" alt="" height="100px">
 	      -->
-	      <%= image_tag(p.image.url(:medium)) %>
+	      <%= image_tag(p.image.url(:thumb)) %>
 	    </a>
 	  </li>
 	  <% end %>

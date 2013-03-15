@@ -7,8 +7,10 @@ gem 'rails', '3.2'
 
 gem 'sqlite3'
 gem 'jquery-rails', '~> 2.1'
+gem 'fancybox-rails'
 gem "paperclip", "~> 3.0"
 gem 'rails_admin'
+gem 'unicorn'
 
 group :assets do
     gem 'sass-rails'
@@ -19,6 +21,8 @@ end
 
 group :development do
 	gem 'rspec-rails',"~> 2.0"
+	 gem "capistrano"
+  	gem "rvm-capistrano"
 end
 
 group :test do

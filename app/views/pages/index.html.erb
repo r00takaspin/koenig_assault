@@ -3,51 +3,7 @@
           <p class="lead"><%= @index_message %></p>
         </div>
         <% @first_post.each do |post|  %>
-          <div class="row">
-              <div class="span12">
-                <div class="row">
-                  <div class="span12">
-                    <h4><strong><a href="#" style="color:black"><%=h post.name %></a></strong></h4>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="span2">
-                    <a href="#" class="thumbnail">
-                        <%= image_tag post.image.url(:thumb), :height => "100px" %>
-                    </a>
-                  </div>
-                  <div class="span9">      
-                    <p>
-                      <%=h post.preview_content %>
-                    </p>
-                    <%= link_to 'Читать далее', archive_detail_path(post.id), :class=>"btn" %>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="span11">
-                    <p></p>
-                    <p>
-                        <div class='pull-left'>
-                              <div style="float:left;margin:4px">
-                                <i class="icon-calendar"></i> <%= I18n.localize(post.created_at, :format => :descr) %> |
-                              </div>
-                              <script type="text/javascript">(function() {
-                               if (window.pluso && typeof window.pluso.start == "function") return;
-                               var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-                               s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-                               s.src = d.location.protocol  + '//share.pluso.ru/pluso-like.js';
-                               var h=d[g]('head')[0] || d[g]('body')[0];
-                               h.appendChild(s);
-                              })();</script>
-                              <div class="pluso pull-right" data-options="small,square,line,horizontal,counter,theme=02" data-services="twitter,vkontakte,facebook,google,livejournal" data-background="#ebebeb" data-url="http://klops.ru/"></div>
-                        </div>
-                        <div class='pull-right'><button class="btn btn-medium btn-inverse" type="button" onClick="location.href='#day_post'" value='click here to visit home page' onclick="$('.day_posts').scrollTo()">Предыдущие дни</button></div>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr>
+          <%= render "share/archive_preview",:post=>post, :scrollDown=>true%>
         <% end %>
         <%if @top_photos %>
         <div class="span6">
@@ -94,51 +50,6 @@
         </div>
         <div class="day_post">
             <% @another_posts.each do |post|%>
-              <div class="row">
-                <div class="span12">
-                  <div class="row">
-                    <div class="span12">
-                      <h4><strong><a href="#" style="color:black"><%=h post.name %></a></strong></h4>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="span2">
-                      <a href="#" class="thumbnail">
-                          <%= image_tag post.image.url(:thumb), :height => "100px" %>
-                      </a>
-                    </div>
-                    <div class="span9">      
-                      <p>
-                        <%=h post.preview_content %>
-                      </p>
-                      <p><%= link_to 'Читать далее', archive_detail_path(post.id), :class=>"btn" %></p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="span11">
-                      <p></p>
-                      <p>
-                          <div class='pull-left'>
-                                <div style="float:left;margin:4px">
-                                  <i class="icon-calendar"></i> <%= I18n.localize(post.created_at, :format => :descr) %> |
-                                </div>
-                                <script type="text/javascript">(function() {
-                                 if (window.pluso && typeof window.pluso.start == "function") return;
-                                 var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-                                 s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-                                 s.src = d.location.protocol  + '//share.pluso.ru/pluso-like.js';
-                                 var h=d[g]('head')[0] || d[g]('body')[0];
-                                 h.appendChild(s);
-                                })();</script>
-                                <div class="pluso pull-right" data-options="small,square,line,horizontal,counter,theme=02" data-services="twitter,vkontakte,facebook,google,livejournal" data-background="#ebebeb" data-url="http://klops.ru/"></div>
-                          </div>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr>
+              <%= render "share/archive_preview",:post=>post %>
             <% end %>
-
-
          </div> 
