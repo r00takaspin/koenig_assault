@@ -43,9 +43,5 @@ namespace :deploy do
 end
 
 before "deploy:assets:precompile" do
-  run ["ln -nfs #{shared_path}/config/settings.yml #{release_path}/config/settings.yml",
-       "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml",
-       "ln -nfs #{shared_path}/db/production.sqlite3 #{release_path}/db/production.sqlite3",
-       "ln -fs #{shared_path}/uploads #{release_path}/uploads"
-  ].join(" && ")
+  run ["RAILS_ENV=production rails c"].join(" && ")
 end
