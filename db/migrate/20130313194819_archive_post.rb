@@ -1,4 +1,4 @@
-class ArchivePost < ActiveRecord::Migration
+class ArchivePostMigration < ActiveRecord::Migration
   def self.up
     create_table :archive_posts do |t|
       t.string :name
