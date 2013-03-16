@@ -11,6 +11,8 @@ gem 'fancybox-rails'
 gem "paperclip", "~> 3.0"
 gem 'rails_admin'
 gem 'unicorn'
+gem 'execjs'
+gem 'therubyracer' 
 
 group :assets do
     gem 'sass-rails'
