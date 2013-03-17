@@ -48,12 +48,14 @@
         <div>
           <a href="#" name="infografika"><%=  image_tag("/images/infograf.jpg",:width=>"900px") %></a>
         </div>
-
+        <%unless @another_posts.empty? %>
         <div class="span6" style="margin-left:0px">
-            <a href="#" name="day_post"><h3 style="color:black">Дневник взятия</h3></a>
+            <a href="#" name="day_post"><h3 style="color:black" id="arhive_posts_index">Дневник взятия</h3></a>
         </div>
+
         <div class="day_post">
             <% @another_posts.each do |post|%>
               <%= render "share/archive_preview",:post=>post %>
             <% end %>
          </div> 
+         <% end %>

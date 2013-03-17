@@ -22,9 +22,14 @@ describe PagesController do
         response.should have_selector("h1",:content=>"Штурм Кенигсберга 9 апреля 1945 года")
     end
 
-    it 'should not find photos' do
+    it 'should not find photos title' do
       get 'index'
       response.should_not have_selector("#top_photos_title",:content=>"Фотохроника штурма")
+    end
+
+    it 'should not find articles title' do
+      get 'index'
+      response.should_not have_selector("#arhive_posts_index",:content=>"Дневник взятия")
     end
   end
 
