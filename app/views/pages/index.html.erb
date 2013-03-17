@@ -5,10 +5,10 @@
         <% @first_post.each do |post|  %>
           <%= render "share/archive_preview",:post=>post, :scrollDown=>true%>
         <% end %>
-        <%if @top_photos %>
+        <%unless @top_photos.empty? %>
         <div class="span6">
           <div class="text-left">
-            <h4>Фотохроника штурма</h4>
+            <h4 id="top_photos_title">Фотохроника штурма</h4>
           </div>
           <div>
             <ul class="thumbnails">
