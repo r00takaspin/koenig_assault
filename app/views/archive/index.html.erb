@@ -1,7 +1,10 @@
+<%unless @all_posts.empty? %>
 <h1><%= @title%></h1>
-
-<% if @all_posts %>
    <% @all_posts.each do |post|  %>
     <%= render "share/archive_preview",:post=>post%>
-  <% end %>
+   <%end%>
+<% else %>
+	<div>
+		фото архив пока не заполнен
+	</div>
 <% end %>

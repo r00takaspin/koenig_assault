@@ -6,9 +6,11 @@ class ArchiveController < ApplicationController
   end
 
   def detail
-  	@post = ArchivePost.find(params[:id])
+  	@post = ArchivePost.find_by_id(params[:id])
   	if (@post)
   		@title = @post.name
-	end
+    else
+      render :text => "Ничего не найдено", :status => 404
+    end
   end
 end

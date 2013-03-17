@@ -1,3 +1,4 @@
+<% unless @photos.empty? %>
 <div style="margin-left:50px">
 	<p><h1><%= @title%></h1></p>
 	<BR />
@@ -14,3 +15,6 @@
 	  <% end %>
 	</ul>
 </div>
+<% else %>
+	фотографии еще не были добавлены в архив
+<% end %>
