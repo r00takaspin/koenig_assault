@@ -8,7 +8,7 @@ gem 'rails', '3.2'
 gem 'sqlite3'
 gem 'jquery-rails', '~> 2.1'
 gem 'fancybox-rails'
-gem "paperclip", "~> 3.0"
+gem "paperclip", "~> 3.4"
 gem 'rails_admin'
 gem 'unicorn'
 gem 'execjs'
