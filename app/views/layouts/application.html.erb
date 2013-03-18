@@ -23,7 +23,9 @@
               <li><%= link_to "Инфографика", "/#infografika" %></li>
               <li class="<%= 'active' if params[:controller] == 'archive' &&  (params[:action] == 'index' or params[:action] == 'detail') %>"><%= link_to "Дневник взятия", archive_path %></li>
               <li class="<%= 'active' if params[:controller] == 'pages' &&  params[:action] == 'photos' %>"><%= link_to "Фотохроника", photos_path %></li>
+              <!--
               <li><%= link_to "Ветераны", veterans_path %></li>
+              -->
             </ul>
             <div class="pull-right">
               <a href="http://klops.ru/"><%= image_tag("logo.png", :alt => "информационная поддержка", :class => "logo") %></a>

@@ -8,7 +8,7 @@
         <div class="span6">
         <%unless @top_photos.empty? %>
             <div class="text-left">
-              <h4 id="top_photos_title">Фотохроника штурма</h4>
+              <h4 id="top_photos_title"><%=t(:top_photos_title)%></h4>
             </div>
             <div>
               <ul class="thumbnails">
@@ -42,13 +42,15 @@
           <h2><small>До дня штурма Кенигсберга осталось</small> 15 дней</h2>
         </p>
         -->
-        <div>
-          <a href="#" name="infografika"><%=  image_tag("/images/infograf.jpg",:width=>"900px") %></a>
+        <div class="span12">
+          <a name="infografika">
+            <img alt="Infograf" src="/images/infograf.jpg" width="900px">
+          </a>
         </div>
 
         <%unless @another_posts.empty? %>
         <div class="span6" style="margin-left:0px">
-            <a href="#" name="day_post"><h3 style="color:black" id="arhive_posts_index">Дневник взятия</h3></a>
+            <a href="#" name="day_post"><h3 style="color:black" id="arhive_posts_index"><%=t(:arhive_posts_index)%></h3></a>
         </div>
         <div class="day_post">
             <% @another_posts.each do |post|%>

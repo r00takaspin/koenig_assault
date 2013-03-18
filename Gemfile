@@ -28,6 +28,8 @@ group :development do
 end
 
 group :test do
+	gem 'ruby-prof', :git => 'git://github.com/wycats/ruby-prof.git'
+	gem 'test-unit'
 	gem 'webrat'
 	gem 'rspec',"~> 2.0"
 	gem 'factory_girl_rails'

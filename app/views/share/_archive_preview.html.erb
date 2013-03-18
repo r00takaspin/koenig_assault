@@ -37,7 +37,7 @@
                   <div class="pluso pull-right" data-options="small,square,line,horizontal,counter,theme=02" data-services="twitter,vkontakte,facebook,google,livejournal" data-background="#ebebeb" data-url="<%=url_for :host => request.host, :controller => 'archive', :action => 'detail', :id => post.id %>"></div>
             </div>
             <% if defined?(scrollDown) %>
-              <div class='pull-right'><button class="btn btn-medium btn-inverse" type="button" onClick="location.href='#day_post'" value='click here to visit home page' onclick="$('.day_posts').scrollTo()">Предыдущие дни</button></div>
+              <div class='pull-right'><button class="btn btn-medium btn-inverse" type="button" onClick="location.href='#day_post'" value='click here to visit home page' onclick="$('.day_posts').scrollTo()"><%=t(:previous_days)%></button></div>
             <% end %>
         </p>
       </div>

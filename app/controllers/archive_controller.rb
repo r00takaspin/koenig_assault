@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class ArchiveController < ApplicationController
   def index
-  	@title = "Ахрив штурма Кенигсберга"
+  	@title = t(:archive_index_title)
   	@all_posts = ArchivePost.find(:all,:order=>"id DESC")
   end
 
