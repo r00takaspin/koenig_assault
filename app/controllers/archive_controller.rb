@@ -9,8 +9,10 @@ class ArchiveController < ApplicationController
   	@post = ArchivePost.find_by_id(params[:id])
   	if (@post)
   		@title = @post.name
+      @og_image = @post.image.url(:medium)
     else
       render :text => "Ничего не найдено", :status => 404
+
     end
   end
 end

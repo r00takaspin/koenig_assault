@@ -2,6 +2,9 @@
     <%= stylesheet_link_tag 'custom', :media => 'screen' %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+    <% if defined?(@og_image) %>
+        <meta property="og:image" content="<%= request.protocol+request.host_with_port+@og_image %>"/>
+    <% end %>
     <%= yield(:head) %>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
