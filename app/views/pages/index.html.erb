@@ -14,11 +14,8 @@
               <ul class="thumbnails">
                 <% @top_photos.each do |photo| %>
                 <li class="span2">
-                  <a href="#" class="thumbnail">
-                    <!--
-                    <img src="examples/55a377c3cbea.jpg" alt="" height="100px">
-                    -->
-                    <a href="<%= photo.image.url(:large) %>"><%= image_tag photo.image.url(:thumb), :height => "100px" %></a>
+                  <a href="#" class="thumbnail" href="<%= photo.image.url(:large) %>">
+                    <%= image_tag photo.image.url(:thumb), :height => "100px" %>
                   </a>
                 </li>
                 <% end %>
