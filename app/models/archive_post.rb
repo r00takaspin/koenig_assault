@@ -1,5 +1,5 @@
 class ArchivePost < ActiveRecord::Base
-	attr_accessible :name,:preview_content,:detail_content,:image
+	attr_accessible :name,:preview_content,:detail_content,:image,:active,:today_active
 
 	has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 

@@ -14,7 +14,7 @@ KoenigAssault::Application.routes.draw do
   get "pages/veterans"
 
   match "/archive/detail/(:id)" => 'archive#detail',:as =>:archive_detail
-
+  match "/archive/last" => 'archive#last',:as =>:archive_last
 
   match "/archive",:to=>'archive#index'
 

@@ -111,6 +111,8 @@ RailsAdmin.config do |config|
       field :name,:string
       field :preview_content,:text
       field :detail_content,:text
+      field :active,:boolean
+      field :today_active,:boolean
       field :image
     end
   end
