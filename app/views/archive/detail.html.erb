@@ -16,7 +16,7 @@
         <p>
           <%=h @post.preview_content %>
         </p>
-        <p><%=h @post.detail_content %></p>
+        <p><%=h simple_format(@post.detail_content) %></p>
       </div>
     </div>
     <div class="row">
