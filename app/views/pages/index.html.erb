@@ -5,26 +5,6 @@
         <% @first_post.each do |post|  %>
           <%= render "share/archive_preview",:post=>post, :scrollDown=>true%>
         <% end %>
-        <div class="span6">
-        <%unless @top_photos.empty? %>
-            <div class="text-left">
-              <h4 id="top_photos_title"><%=t(:top_photos_title)%></h4>
-            </div>
-            <div>
-              <ul class="thumbnails">
-                <% @top_photos.each do |photo| %>
-                <li class="span2">
-                  <a class="thumbnail" href="<%= photo.image.url(:large) %>">
-                    <%= image_tag photo.image.url(:thumb), :height => "100px" %>
-                  </a>
-                </li>
-                <% end %>
-              </ul>
-            </div>
-        <% else %>
-          нет добавленных фотографий в архиве
-        <% end %>
-        </div>
         <!--
         <p>
           <h2><small>До дня штурма Кенигсберга осталось</small> 15 дней</h2>
