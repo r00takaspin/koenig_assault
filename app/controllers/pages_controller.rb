@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class PagesController < ApplicationController
   def index
-  	@title = "Штурм Кенигсберга 9 апреля 1945 года"
+  	@title = "Штурм Кенигсберга"
   	@index_message = t(:index_page_text)
   	@first_post = ArchivePost.all(:conditions => { :active => true },:limit=>1,:order=>'id DESC')
   	@top_photos = PhotoArchive.limit(6)
